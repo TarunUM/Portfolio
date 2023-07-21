@@ -10,12 +10,26 @@ html {
   padding: 0.4em;
   font-family: 'Consolas', cursive;
   color: darkgray;
-  /*background-color: black;*/
+  background-color: rgb(15,15,16);
+}
+
+/* For WebKit-based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 15px; /* Adjust the width as needed */
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(241,241,241,0.1); /* Change the background color */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(15, 15, 16); /* Change the thumb color */
+  /*border-radius: 40%;*/
 }
 
 .webgl {
   position: fixed;
-  z-index: -1;
+  /*z-index: 1;*/
   top: 0;
   left: 0;
   overflow: scroll;
@@ -23,25 +37,30 @@ html {
 }
 
 main{
+  position: relative;
+  z-index: 1;
   padding: 1.25em;
 }
 
+
 .name {
-  font-family: 'Forte', cursive;
-  font-size: 4rem;
+  font-family: 'Mistral', cursive;
+  font-size: 6rem;
   grid-area: two;
   color: wheat;
   margin: 0 auto;
+  z-index: 1;
 }
 
 .description {
-  font-size: 2.5em;
+  font-size: 1.5em;
 }
 
 .cards {
   background: hsl(88, 25%, 11%, 0.5) !important;
   backdrop-filter: saturate(180%) blur(30px);
   -webkit-backdrop-filter: saturate(1800%) blur(30px);
+  padding: 1em 0;
   display: grid;
   grid-template-areas:
           'image'
@@ -73,8 +92,7 @@ main{
   width: 90%;
   background-size: cover;
   margin-top: 1em;
-  -moz-border-radius: 8%;
-  border-radius: 8%;
+  border-radius: var(--image-radius);
 }
 
 .imageCard:hover img{
@@ -124,6 +142,12 @@ main{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .secondCard{
+    grid-template-areas:
+            'title image'
+            'text image';
+  }
+
   .imageCard {
     flex-direction: row;
     justify-content: center;
@@ -139,28 +163,33 @@ main{
 
   .image {
     width: 80%;
-    padding: 1em;
+    padding: 0.5em;
     margin: 0;
     border-radius: var(--image-radius);
+    box-shadow: 0 0 15px 15px rgba(15, 15, 16, 1) ;
   }
 
   .cardTextContent {
     text-align: justify-all;
     font-size: 1.25em;
     font-weight: bold;
-    padding: 0em;
+    padding: 0;
     margin: 0;
     width: 100%;
   }
 
+  .header{
+    margin: 0 0 0 30%;
+  }
+
   .name {
-    font-size: 6rem;
+    font-size: 10rem;
     padding: 0;
     margin: 0;
   }
 
   .description {
-    padding-top: 8em;
+    padding-top: 6.8em;
     font-size: 2.5em;
   }
 

@@ -40,7 +40,7 @@ const canvas = document.getElementsByTagName('canvas')[0];
 const renderer = new THREE.WebGLRenderer({canvas});
 renderer.setSize(size.width, size.height);
 const color3 = new THREE.Color("rgb(15, 15, 16)");
-renderer.setClearColor(color3)
+renderer.setClearColor(color3, 0)
 renderer.render(scene, camera);
 
 // document.body.appendChild(renderer.domElement);
