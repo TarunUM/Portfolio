@@ -1,0 +1,181 @@
+:root{
+  --v-space: 6rem;
+  --border-radius: min(10vw, var(--v-space));
+  --image-radius: min(2vw, var(--v-space));
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0.4em;
+  font-family: 'Consolas', cursive;
+  color: darkgray;
+  /*background-color: black;*/
+}
+
+.webgl {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  overflow: scroll;
+
+}
+
+main{
+  padding: 1.25em;
+}
+
+.name {
+  font-family: 'Forte', cursive;
+  font-size: 4rem;
+  grid-area: two;
+  color: wheat;
+  margin: 0 auto;
+}
+
+.description {
+  font-size: 2.5em;
+}
+
+.cards {
+  background: hsl(88, 25%, 11%, 0.5) !important;
+  backdrop-filter: saturate(180%) blur(30px);
+  -webkit-backdrop-filter: saturate(1800%) blur(30px);
+  display: grid;
+  grid-template-areas:
+          'image'
+          'title'
+          'text';
+}
+
+.firstCard{
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
+}
+
+.lastCard{
+  border-bottom-right-radius: 5%;
+  border-bottom-left-radius: 5%;
+}
+
+.imageTitle{
+  grid-area: title;
+  text-align: center;
+  color: wheat;
+  margin: 0;
+  text-decoration: underline;
+  text-decoration-color: hsla(0, 0%, 57%, 0.5);
+  text-underline-offset: 0.5em;
+}
+
+.image{
+  width: 90%;
+  background-size: cover;
+  margin-top: 1em;
+  -moz-border-radius: 8%;
+  border-radius: 8%;
+}
+
+.imageCard:hover img{
+  opacity: 70%;
+}
+
+.imageCard {
+  grid-area: image;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.cardTextContent {
+  grid-area: text;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer{
+  padding-top: 1.5em ;
+  font-family: "Sofia", sans-serif;
+}
+
+.footer a {
+  color: wheat;
+  text-decoration: none;
+}
+
+/* Create all these classes for desktop version*/
+@media screen and (min-width: 768px) {
+
+  body{
+    scroll-behavior: smooth;
+    padding: 2.5em 6em 0 6em;
+    text-align: right;
+  }
+
+  .cards {
+    grid-template-areas:
+        'image title'
+        'image text';
+    place-items: center;
+    padding: 5em 3em;
+    margin: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .imageCard {
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .imageTitle{
+    text-align: left;
+    padding: 0;
+    margin: 0;
+  }
+
+  .image {
+    width: 80%;
+    padding: 1em;
+    margin: 0;
+    border-radius: var(--image-radius);
+  }
+
+  .cardTextContent {
+    text-align: justify-all;
+    font-size: 1.25em;
+    font-weight: bold;
+    padding: 0em;
+    margin: 0;
+    width: 100%;
+  }
+
+  .name {
+    font-size: 6rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .description {
+    padding-top: 8em;
+    font-size: 2.5em;
+  }
+
+  .firstCard{
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+  }
+
+  .lastCard{
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+  }
+
+  .footer{
+    padding: 4em 0;
+    font-size: 1.5em;
+  }
+}
